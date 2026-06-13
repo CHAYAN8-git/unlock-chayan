@@ -578,7 +578,7 @@ function GymSection() {
         changeSong("/sounds/superman.mp3");
       },
     });
-  }, []);
+  }, [isMobile ]);
   useEffect(() => {
     const section = sectionRef.current;
     const track = trackRef.current;
