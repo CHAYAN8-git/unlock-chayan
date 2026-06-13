@@ -567,7 +567,7 @@ function GymSection() {
 
   useEffect(() => {
     ScrollTrigger.create({
-      trigger: ".gym-section",
+     trigger: isMobile ? ".gym-section-mobile" : ".gym-section",
       start: "top 50%",
       end: "bottom 50%",
 

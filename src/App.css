@@ -818,7 +818,7 @@ body {
 .r2-title {
   position: absolute;
   font-family: var(--bebas);
-  font-size: clamp(3rem, 8vw, 7rem);
+  font-size: clamp(1.5rem, 4vw, 3.5rem);
   color: rgba(240, 230, 211, 0.03);
   white-space: nowrap;
   pointer-events: none;
@@ -863,7 +863,7 @@ body {
   left: 50%;
   transform: translateX(-50%);
   font-family: var(--mono);
-  font-size: 5rem;
+  font-size: 1rem;
   letter-spacing: 0.3em;
   color: rgba(200, 169, 110, 0.3);
   text-transform: uppercase;
@@ -1043,7 +1043,7 @@ body {
 }
 .marquee-word {
   font-family: var(--bebas);
-  font-size: clamp(1.5rem, 5vw, 5rem);
+  font-size: clamp(1.5rem, 3vw, 2.5rem);
   line-height: 1.05;
   color: var(--void);
   padding: 0 1.5rem;
@@ -1069,7 +1069,7 @@ body {
 }
 .r5-title {
   font-family: var(--bebas);
-  font-size: clamp(1rem, 5vw, 3rem);
+  font-size: clamp(0.7rem, 3vw, 1.5rem);
   color: var(--void);
 }
 
