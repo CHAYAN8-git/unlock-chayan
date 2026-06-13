@@ -859,7 +859,7 @@ body {
 }
 .r2-hint {
   position: absolute;
-  bottom: 2rem;
+  bottom: 4rem;
   left: 50%;
   transform: translateX(-50%);
   font-family: var(--mono);
@@ -871,6 +871,21 @@ body {
   white-space: nowrap;
   font-weight: bold;
 }
+@media (max-width: 768px) {
+  .reason-2-grid {
+    max-width: 80%;
+  }
+
+  .r2-image {
+    width: 6rem;
+    height: 6rem;
+  }
+
+  .r2-label {
+    font-size: 0.5rem;
+  }
+}
+
 .r2-image {
   width: 8rem;
   height: 8rem;
@@ -1043,8 +1058,8 @@ body {
 }
 .marquee-word {
   font-family: var(--bebas);
-  font-size: clamp(1.5rem, 3vw, 2.5rem);
-  line-height: 1.05;
+ font-size: clamp(0.9rem, 2vw, 2.2rem);
+   line-height: 1.05;
   color: var(--void);
   padding: 0 1.5rem;
   letter-spacing: 0.02em;
@@ -1072,7 +1087,40 @@ body {
   font-size: clamp(0.7rem, 3vw, 1.5rem);
   color: var(--void);
 }
+/* MOBILE */
+@media (max-width: 768px) {
+  .reason-5 {
+    min-height: 100vh;
+    padding: 2rem 0;
+    overflow: hidden;
+  }
 
+  .marquee-word {
+    font-size: 1rem;
+    padding: 0 0.75rem;
+    white-space: nowrap;
+  }
+
+  .marquee-word.outline {
+    -webkit-text-stroke: 1px var(--void);
+  }
+
+  .reason-5-center {
+    width: 90%;
+    padding: 0 1rem;
+  }
+
+  .r5-label {
+    font-size: 0.6rem;
+    letter-spacing: 0.25em;
+  }
+
+  .r5-title {
+    font-size: 1.2rem;
+    line-height: 1.15;
+    margin-top: 0.5rem;
+  }
+}
 /* ────────────────────────────────────────────
    REASON 6 — SPLIT
 ──────────────────────────────────────────── */
@@ -1181,9 +1229,7 @@ body {
   line-height: 1.75;
   max-width: 320px;
 }
-.r6-video {
-  border: 5px solid red;
-}
+
 
 /* ────────────────────────────────────────────
    REASON 7 — NEON

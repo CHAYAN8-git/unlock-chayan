@@ -1201,7 +1201,7 @@ function Reason2() {
         ))}
       </div>
       <div className="r2-hint">
-        Move your cursor to see magic(reveal)& some tiny-mini reasons to hire
+        tap to see hidden reasons
         me{" "}
       </div>
     </section>
