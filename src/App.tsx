@@ -1147,34 +1147,56 @@ function Reason2() {
     });
   }, []);
   useEffect(() => {
-    const section = sectionRef.current;
+  const section = sectionRef.current;
 
-    if (!section) return;
+  if (!section) return;
 
-    gsap.fromTo(
-      ".r2-cell",
-      { opacity: 0, scale: 0.8 },
-      {
-        opacity: 1,
-        scale: 1,
-        duration: 0.5,
-        stagger: { amount: 0.6, from: "center" },
-        ease: "back.out(1.4)",
-        scrollTrigger: { trigger: section, start: "top 65%" },
-      },
-    );
+  gsap.fromTo(
+    ".r2-cell",
+    { opacity: 0, scale: 0.8 },
+    {
+      opacity: 1,
+      scale: 1,
+      duration: 0.5,
+      stagger: { amount: 0.6, from: "center" },
+      ease: "back.out(1.4)",
+      scrollTrigger: { trigger: section, start: "top 65%" },
+    }
+  );
 
-    const handleMouse = (e: MouseEvent) => {
-      const rect = section.getBoundingClientRect();
-      const x = ((e.clientX - rect.left) / rect.width) * 100;
-      const y = ((e.clientY - rect.top) / rect.height) * 100;
-      const mask = section.querySelector(".spotlight-mask") as HTMLElement;
-      if (mask)
-        mask.style.background = `radial-gradient(circle 300px at ${x}% ${y}%, transparent 0%, rgba(5,5,5,0.96) 100%)`;
-    };
-    section.addEventListener("mousemove", handleMouse);
-    return () => section.removeEventListener("mousemove", handleMouse);
-  }, []);
+  const updateSpotlight = (clientX: number, clientY: number) => {
+    const rect = section.getBoundingClientRect();
+
+    const x = ((clientX - rect.left) / rect.width) * 100;
+    const y = ((clientY - rect.top) / rect.height) * 100;
+
+    const mask = section.querySelector(".spotlight-mask") as HTMLElement;
+
+    if (mask) {
+      mask.style.background =
+        `radial-gradient(circle 250px at ${x}% ${y}%,
+        transparent 0%,
+        rgba(5,5,5,0.96) 100%)`;
+    }
+  };
+
+  const handleMouse = (e: MouseEvent) => {
+    updateSpotlight(e.clientX, e.clientY);
+  };
+
+  const handleTouch = (e: TouchEvent) => {
+    const touch = e.touches[0];
+    updateSpotlight(touch.clientX, touch.clientY);
+  };
+
+  section.addEventListener("mousemove", handleMouse);
+  section.addEventListener("touchmove", handleTouch);
+
+  return () => {
+    section.removeEventListener("mousemove", handleMouse);
+    section.removeEventListener("touchmove", handleTouch);
+  };
+}, []);
 
   const traits = [
     { img: "/images/pandit.png", label: "part-time pandit" },
@@ -1195,7 +1217,8 @@ function Reason2() {
       <div className="reason-2-grid">
         {traits.map((t, i) => (
           <div key={i} className="r2-cell">
-            <img src={t.img} alt={t.label} className="r2-image" />
+                        <img src={t.img} alt={t.label} className="r2-image" />
+
             <div className="r2-label">{t.label}</div>
           </div>
         ))}
@@ -1546,8 +1569,8 @@ function Reason5() {
   return (
     <section className="reason-5">
       {[0, 1, 2].map((row) => (
-        <div key={row} style={{ overflow: "hidden", width: "100vw" }}>
-          <div
+<div key={row} style={{ overflow: "hidden", width: "100%" }}>    
+        <div
             style={{
               display: "flex",
               animation: `${row % 2 === 0 ? "marqueeLeft" : "marqueeRight"} ${18 + row * 4}s linear infinite`,
