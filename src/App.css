@@ -726,7 +726,7 @@ body {
 
   object-fit: contain;
 
-  opacity: 0.7;
+  opacity: 1;
 
   z-index: 0;
 }
@@ -744,7 +744,7 @@ body {
   content: "01";
   position: absolute;
   font-family: var(--bebas);
-  font-size: 40vw;
+  font-size: 20vw;
   color: rgba(200, 169, 110, 0.02);
   pointer-events: none;
   user-select: none;
@@ -768,7 +768,7 @@ body {
 }
 .kinetic-word {
   font-family: var(--bebas);
-  font-size: clamp(2rem, 13vw, 13rem);
+  font-size: clamp(1rem, 5vw, 5rem);
   display: block;
   line-height: 0.88;
   color: var(--bone);
@@ -784,7 +784,7 @@ body {
 }
 .reason-body {
   font-family: var(--dm);
-  font-size: 1.05rem;
+  font-size: 0.67rem;
   color: rgba(240, 230, 211, 0.62);
   max-width: 480px;
   margin: 2rem auto 0;
@@ -1043,7 +1043,7 @@ body {
 }
 .marquee-word {
   font-family: var(--bebas);
-  font-size: clamp(3rem, 7.5vw, 8rem);
+  font-size: clamp(1.5rem, 5vw, 5rem);
   line-height: 1.05;
   color: var(--void);
   padding: 0 1.5rem;
@@ -1062,7 +1062,7 @@ body {
 }
 .r5-label {
   font-family: var(--mono);
-  font-size: 2.5rem;
+  font-size: 1.25rem;
   letter-spacing: 0.4em;
   color: rgba(10, 10, 15, 0.45);
   text-transform: uppercase;
@@ -1139,7 +1139,7 @@ body {
 }
 .r6-big {
   font-family: var(--bebas);
-  font-size: clamp(5rem, 8vw, 8rem);
+  font-size: clamp(1.25rem, 5vw, 5rem);
   line-height: 0.88;
   color: var(--bone);
 }
@@ -1157,7 +1157,7 @@ body {
 }
 .r6-right-number {
   font-family: var(--bebas);
-  font-size: 3rem;
+  font-size: 1.5rem;
   color: rgba(10, 10, 15, 0.08);
   position: absolute;
   line-height: 1;
@@ -1169,7 +1169,7 @@ body {
 }
 .r6-right-title {
   font-family: var(--bebas);
-  font-size: clamp(2rem, 5.5vw, 5rem);
+  font-size: clamp(1rem, 5.5vw, 3rem);
   color: var(--void);
   line-height: 0.92;
 }
@@ -1220,7 +1220,7 @@ body {
 }
 .neon-title {
   font-family: var(--bebas);
-  font-size: clamp(4rem, 11vw, 11rem);
+  font-size: clamp(2rem, 5vw, 3rem);
   text-align: center;
   line-height: 0.9;
   color: var(--bone);
