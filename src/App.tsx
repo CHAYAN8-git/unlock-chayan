@@ -2008,7 +2008,7 @@ function FriendshipMeter({ score }: { score: number }) {
   console.log("METER RECEIVED:", score);
   const [displayed, setDisplayed] = useState(0);
   const [textVisible, setTextVisible] = useState(false);
-  const triggered = useRef(false);
+  // const triggered = useRef(false);
   const pct = Math.round((score / 5) * 100);
   // SVG arc: half-circle, r=80, cx=100 cy=100, from (20,100) to (180,100)
   const circumference = Math.PI * 80; // ~251.3
