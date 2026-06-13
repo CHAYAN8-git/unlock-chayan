@@ -1,0 +1,10 @@
+node_modules
+build
+.env
+# echo "# unlock-chayan" >> README.md
+# git init
+# git add README.md
+# git commit -m "first commit"
+# git branch -M main
+# git remote add origin https://github.com/CHAYAN8-git/unlock-chayan.git
+# git push -u origin main
