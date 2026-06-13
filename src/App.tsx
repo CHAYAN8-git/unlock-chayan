@@ -6,7 +6,7 @@ import Lenis from "@studio-freight/lenis";
 import "./App.css";
 import { db } from "./firebase";
 
-import { ref, push,get } from "firebase/database";
+import { ref, push, get } from "firebase/database";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -49,9 +49,8 @@ bgMusic.loop = true;
 
 let currentSong = "";
 
-const changeSong = (src:string , startTime = 0) => {
-
-  if(currentSong === src) return;
+const changeSong = (src: string, startTime = 0) => {
+  if (currentSong === src) return;
 
   currentSong = src;
 
@@ -63,15 +62,15 @@ const changeSong = (src:string , startTime = 0) => {
 
   bgMusic.currentTime = startTime;
 
-  bgMusic.play().catch(err => console.log(err));
-    bgMusic.onloadedmetadata = () => {
+  bgMusic.play().catch((err) => console.log(err));
+  bgMusic.onloadedmetadata = () => {
     bgMusic.currentTime = startTime;
 
-    bgMusic.play()
+    bgMusic
+      .play()
       .then(() => console.log("PLAYING"))
-      .catch(err => console.log("ERROR", err));
+      .catch((err) => console.log("ERROR", err));
   };
-
 };
 // ─────────────────────────────────────────────
 // AUDIO ENGINE (Web Audio API — no assets needed)
@@ -420,7 +419,8 @@ function IntroSection() {
           <span className="line intro-line-2">HBS and HGS</span>
         </div>
         <div ref={subtitleRef} className="intro-subtitle">
-          Scroll to begin the experience ↓but before that click anywhere on the screen
+          Scroll to begin the experience ↓but before that click anywhere on the
+          screen
         </div>
       </div>
       <div className="intro-scroll-hint">
@@ -438,14 +438,14 @@ function WhoSection() {
     ScrollTrigger.create({
       trigger: ".who-section",
       start: "top 50%",
-        end: "bottom 50%",
+      end: "bottom 50%",
 
       onEnter: () => {
         changeSong("/sounds/brampton.mp3", 30);
       },
       onLeaveBack: () => {
-  changeSong("/sounds/brampton.mp3");
-}
+        changeSong("/sounds/brampton.mp3");
+      },
     });
   }, []);
   const [revealed, setRevealed] = useState<Record<string, boolean>>({});
@@ -569,14 +569,14 @@ function GymSection() {
     ScrollTrigger.create({
       trigger: ".gym-section",
       start: "top 50%",
-        end: "bottom 50%",
+      end: "bottom 50%",
 
       onEnter: () => {
         changeSong("/sounds/superman.mp3");
       },
       onEnterBack: () => {
-  changeSong("/sounds/superman.mp3");
-}
+        changeSong("/sounds/superman.mp3");
+      },
     });
   }, []);
   useEffect(() => {
@@ -651,7 +651,7 @@ function GymSection() {
             transition={{ duration: 0.8, delay: i * 0.1 }}
             viewport={{ once: true, amount: 0.3 }}
           >
-            <img src="/images/abs.png" alt="gym" />
+            <img src={p.image} alt="gym" />
 
             <div className="gym-number">{p.num}</div>
             <div className="gym-headline">
@@ -723,24 +723,35 @@ function CodeSection() {
     { type: "prompt", content: "cat about.json" },
     { type: "normal", content: "{" },
     { type: "key", label: '  "name"', value: '"I already told ya bbg or bbb"' },
-    { type: "key", label: '  "role"', value: '"paise waare soche duniya jatt paida hoya bass chhaun waaste"' },
+    {
+      type: "key",
+      label: '  "role"',
+      value: '"paise waare soche duniya jatt paida hoya bass chhaun waaste"',
+    },
     {
       type: "key",
       label: '  "Tech-stack"',
-      value: '["Next.js", "Sexy brain", "CSS(chayan sexy stud)", "Node.js","Leetcode 340+ problems solved ,"X-tcs intern"]',
+      value:
+        '["Next.js", "Sexy brain", "CSS(chayan sexy stud)", "Node.js","Leetcode 340+ problems solved ,"X-tcs intern"]',
     },
     { type: "key", label: '  "commits_today"', value: "47" },
     { type: "key", label: '  "coffee_dependency"', value: "true" },
-    { type: "key", label: '  "ships_at"', value: '"When world is sleepin cause bbg im batman"' },
+    {
+      type: "key",
+      label: '  "ships_at"',
+      value: '"When world is sleepin cause bbg im batman"',
+    },
     {
       type: "comment",
-      content: "  // warning: i have only nerdy,music,or badminton things to talk",
+      content:
+        "  // warning: i have only nerdy,music,or badminton things to talk",
     },
     { type: "key", label: '  "vibe"', value: '"builds things that slap"' },
     {
       type: "key",
       label: '  "open_to"',
-      value: '"No flings only soulmate typa shi(basically no internships i accept only permanent employment or nothing)"',
+      value:
+        '"No flings only soulmate typa shi(basically no internships i accept only permanent employment or nothing)"',
     },
     { type: "normal", content: "}" },
     { type: "prompt", content: "_" },
@@ -870,30 +881,29 @@ function CodeSection() {
 function BadmintonSection() {
   const sectionRef = useRef<HTMLElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
-useEffect(() => {
-  const trigger = ScrollTrigger.create({
-    trigger: sectionRef.current,
-    start: "top 50%",
+  useEffect(() => {
+    const trigger = ScrollTrigger.create({
+      trigger: sectionRef.current,
+      start: "top 50%",
       end: "bottom 50%",
 
-    onEnter: () => {
-      console.log("BADMINTON ENTERED");
-      changeSong("/sounds/sao.mp3", 120);
-    },
-    onLeaveBack: () => {
-  changeSong("/sounds/sao.mp3");
+      onEnter: () => {
+        console.log("BADMINTON ENTERED");
+        changeSong("/sounds/sao.mp3", 120);
+      },
+      onLeaveBack: () => {
+        changeSong("/sounds/sao.mp3");
+      },
+      onEnterBack: () => {
+        changeSong("/sounds/sao.mp3", 120);
+      },
+      onLeave: () => {
+        changeSong("/sounds/kaisebani.mp3", 5);
+      },
+    });
 
-},
-onEnterBack: () => {
-  changeSong("/sounds/sao.mp3",120);
-},
-onLeave: () => {
-  changeSong("/sounds/kaisebani.mp3", 5);
-}
-  });
-
-  return () => trigger.kill();
-}, []);
+    return () => trigger.kill();
+  }, []);
   useEffect(() => {
     const canvas = canvasRef.current!;
     const ctx = canvas.getContext("2d")!;
@@ -991,21 +1001,20 @@ onLeave: () => {
 
   return (
     <section className="badminton-section" ref={sectionRef}>
-       <video
-    autoPlay
-    muted
-    loop
-    playsInline
-    className="badminton-video"
-  >
-    <source src="/videos/smash.mp4" type="video/mp4" />
-  </video>
+      <video autoPlay muted loop playsInline className="badminton-video">
+        <source src="/videos/smash.mp4" type="video/mp4" />
+      </video>
       <canvas ref={canvasRef} className="shuttle-trail" />
       <div className="speed-lines" />
       <div className="badminton-content">
         <div className="badminton-eyebrow">Arc III — The Court</div>
         <div className="badminton-big">
-          {["Why you should hire me :", "Reason:1", "I can ", "play badminton or cricket with other employees so they dont get stressed "].map((word, i) => (
+          {[
+            "Why you should hire me :",
+            "Reason:1",
+            "I can ",
+            "play badminton or cricket with other employees so they dont get stressed ",
+          ].map((word, i) => (
             <div key={i} style={{ overflow: "hidden" }}>
               <span
                 className="line-reveal"
@@ -1036,7 +1045,8 @@ onLeave: () => {
           ))}
         </div>
         <div className="badminton-meta">
-        please Hire me im very gareeb · like very gareeb 5 din se khaana bhi ni khaaya ·
+          please Hire me im very gareeb · like very gareeb 5 din se khaana bhi
+          ni khaaya ·
         </div>
       </div>
     </section>
@@ -1048,23 +1058,21 @@ onLeave: () => {
 // ─────────────────────────────────────────────
 
 function Reason1() {
-
   useEffect(() => {
-     ScrollTrigger.create({
-    trigger: ".reason-1",
-    start: "top 10%",
-    end: "bottom 50%",    
-    // end:"bottom 50%",
+    ScrollTrigger.create({
+      trigger: ".reason-1",
+      start: "top 10%",
+      end: "bottom 50%",
+      // end:"bottom 50%",
 
-    // onEnter: () => {
-    //   changeSong("/sounds/kaisebani.mp3", 5);
-    // },
+      // onEnter: () => {
+      //   changeSong("/sounds/kaisebani.mp3", 5);
+      // },
 
-    // onEnterBack: () => {
-    //   changeSong("/sounds/kaisebani.mp3", 0);
-    // },
-   
-  });
+      // onEnterBack: () => {
+      //   changeSong("/sounds/kaisebani.mp3", 0);
+      // },
+    });
     const tl = gsap.timeline({
       scrollTrigger: { trigger: ".reason-1", start: "top 70%" },
     });
@@ -1097,27 +1105,23 @@ function Reason1() {
 
   return (
     <section className="reason-1">
-     <video
-    autoPlay
-    muted
-    loop
-    playsInline
-    className="reason-video"
-  >
-    <source src="/videos/dance.mp4" type="video/mp4" />
-  </video>
+      <video autoPlay muted loop playsInline className="reason-video">
+        <source src="/videos/dance.mp4" type="video/mp4" />
+      </video>
       <div className="reason-1-content">
         <span className="reason-tag reason-tag-1">
           Reason #02 — Why you need him in your company
         </span>
-        {["Reason 2 why you should hire me:", "i can dance on weeknd office parties", "."].map((w) => (
+        {[
+          "Reason 2 why you should hire me:",
+          "i can dance on weeknd office parties",
+          ".",
+        ].map((w) => (
           <span key={w} className="kinetic-word">
             {w}
           </span>
         ))}
-        <p className="reason-body reason-body-1">
-        
-        </p>
+        <p className="reason-body reason-body-1"></p>
       </div>
     </section>
   );
@@ -1126,8 +1130,7 @@ function Reason1() {
 function Reason2() {
   const sectionRef = useRef<HTMLElement>(null);
 
-   useEffect(() => {
-
+  useEffect(() => {
     ScrollTrigger.create({
       trigger: ".reason-2",
 
@@ -1142,7 +1145,7 @@ function Reason2() {
         changeSong("/sounds/superman.mp3", 0);
       },
     });
-    }, []);
+  }, []);
   useEffect(() => {
     const section = sectionRef.current;
 
@@ -1174,16 +1177,16 @@ function Reason2() {
   }, []);
 
   const traits = [
-  { img: "/images/pandit.png", label: "part-time pandit" },
-  { img: "/images/abs.png", label: "very disciplined" },
-  { img: "/images/uni.png", label: "bharat ratna winner" },
-  { img: "/images/dsa.png", label: "Leechad bangaya teacher" },
-  { img: "/images/yt.png", label: "can teach new comers" },
-  { img: "/images/prom.png", label: "very professional" },
-  { img: "/images/tansen.png", label: "Gaayak" },
-  { img: "/images/mantri.png", label: "Rizz mantri BJP" },
-  { img: "/images/smash.png", label: "KNOWs HOW TO FLY" },
-];
+    { img: "/images/pandit.png", label: "part-time pandit" },
+    { img: "/images/abs.png", label: "very disciplined" },
+    { img: "/images/uni.png", label: "bharat ratna winner" },
+    { img: "/images/dsa.png", label: "Leechad bangaya teacher" },
+    { img: "/images/yt.png", label: "can teach new comers" },
+    { img: "/images/prom.png", label: "very professional" },
+    { img: "/images/tansen.png", label: "Gaayak" },
+    { img: "/images/mantri.png", label: "Rizz mantri BJP" },
+    { img: "/images/smash.png", label: "KNOWs HOW TO FLY" },
+  ];
 
   return (
     <section className="reason-2" ref={sectionRef}>
@@ -1192,16 +1195,15 @@ function Reason2() {
       <div className="reason-2-grid">
         {traits.map((t, i) => (
           <div key={i} className="r2-cell">
-           <img
-  src={t.img}
-  alt={t.label}
-  className="r2-image"
-/>
+            <img src={t.img} alt={t.label} className="r2-image" />
             <div className="r2-label">{t.label}</div>
           </div>
         ))}
       </div>
-      <div className="r2-hint">Move your cursor to see magic(reveal)& some tiny-mini reasons to hire me </div>
+      <div className="r2-hint">
+        Move your cursor to see magic(reveal)& some tiny-mini reasons to hire
+        me{" "}
+      </div>
     </section>
   );
 }
@@ -1211,28 +1213,27 @@ function Reason3() {
   const sectionRef = useRef<HTMLElement>(null);
   const mouseRef = useRef({ x: -1000, y: -1000 });
   useEffect(() => {
-  const trigger = ScrollTrigger.create({
-    trigger: sectionRef.current,
-    start: "top 50%",
-    end: "bottom 50%",
+    const trigger = ScrollTrigger.create({
+      trigger: sectionRef.current,
+      start: "top 50%",
+      end: "bottom 50%",
 
-    onEnter: () => {
-      console.log("BADMINTON ENTERED");
-      changeSong("/sounds/tutor.mp3", 80);
-    },
+      onEnter: () => {
+        console.log("BADMINTON ENTERED");
+        changeSong("/sounds/tutor.mp3", 80);
+      },
 
-    onLeaveBack: () => {
-      changeSong("/sounds/tutor.mp3");
-    },
+      onLeaveBack: () => {
+        changeSong("/sounds/tutor.mp3");
+      },
 
-    onEnterBack: () => {
-      changeSong("/sounds/tutor.mp3", 120);
-    },
-  });
+      onEnterBack: () => {
+        changeSong("/sounds/tutor.mp3", 120);
+      },
+    });
 
-  return () => trigger.kill();
-}, []);   
-
+    return () => trigger.kill();
+  }, []);
 
   useEffect(() => {
     const canvas = canvasRef.current!;
@@ -1346,11 +1347,7 @@ function Reason3() {
 
   return (
     <section className="reason-3 " ref={sectionRef}>
-       <img
-    src="/images/uni.png"
-    className="reason3-bg-img"
-    alt=""
-  />
+      <img src="/images/uni.png" className="reason3-bg-img" alt="" />
 
       <canvas
         ref={canvasRef}
@@ -1384,8 +1381,12 @@ function Reason3() {
               lineHeight: 0.9,
             }}
           >
-            <div style={{ color: "var(--bone)" }}>Reason 4 of why you should hire me:</div>
-            <div style={{ color: "var(--gold)" }}>5 times bharat ratna award winner </div>
+            <div style={{ color: "var(--bone)" }}>
+              Reason 4 of why you should hire me:
+            </div>
+            <div style={{ color: "var(--gold)" }}>
+              5 times bharat ratna award winner{" "}
+            </div>
             <div style={{ color: "var(--bone)" }}>in a row </div>
           </div>
           <p
@@ -1397,9 +1398,7 @@ function Reason3() {
               maxWidth: "420px",
               lineHeight: 1.7,
             }}
-          >
-          
-          </p>
+          ></p>
         </div>
       </div>
     </section>
@@ -1585,23 +1584,23 @@ function Reason5() {
 
 function Reason6() {
   useEffect(() => {
-  const trigger = ScrollTrigger.create({
-    trigger: ".reason-6",
+    const trigger = ScrollTrigger.create({
+      trigger: ".reason-6",
 
-    start: "top 50%",
-    end: "bottom 50%",
+      start: "top 50%",
+      end: "bottom 50%",
 
-    onEnter: () => {
-      changeSong("/sounds/tic.mp3", 90);
-    },
+      onEnter: () => {
+        changeSong("/sounds/tic.mp3", 90);
+      },
 
-    onEnterBack: () => {
-      changeSong("/sounds/tic.mp3", 30);
-    },
-  });
+      onEnterBack: () => {
+        changeSong("/sounds/tic.mp3", 30);
+      },
+    });
 
-  return () => trigger.kill();
-}, []);
+    return () => trigger.kill();
+  }, []);
   useEffect(() => {
     const tl = gsap.timeline({
       scrollTrigger: { trigger: ".reason-6", start: "top 70%" },
@@ -1628,15 +1627,9 @@ function Reason6() {
   return (
     <section className="reason-6">
       <div className="r6-left ">
-        <video
-    autoPlay
-    muted
-    loop
-    playsInline
-    className="r6-video"
-  >
-    <source src="/videos/anchor.mp4" type="video/mp4" />
-  </video>
+        <video autoPlay muted loop playsInline className="r6-video">
+          <source src="/videos/anchor.mp4" type="video/mp4" />
+        </video>
         <div className="r6-content">
           <div
             style={{
@@ -1651,11 +1644,13 @@ function Reason6() {
             Reason #06
           </div>
           <div className="r6-big">
-            {["Reason 6 of wyshm=", "i have goated Social skills", ""].map((w) => (
-              <div key={w} className="word">
-                {w}
-              </div>
-            ))}
+            {["Reason 6 of wyshm=", "i have goated Social skills", ""].map(
+              (w) => (
+                <div key={w} className="word">
+                  {w}
+                </div>
+              ),
+            )}
           </div>
           <div className="r6-desc">
             Chayan isn't static. He's always learning, leveling up. You don't
@@ -1664,24 +1659,18 @@ function Reason6() {
         </div>
       </div>
       <div className="r6-right">
-          <video
-    autoPlay
-    muted
-    loop
-    playsInline
-    className="r6-video"
-  >
-    <source src="/videos/yt.mp4" type="video/mp4" />
-  </video>
+        <video autoPlay muted loop playsInline className="r6-video">
+          <source src="/videos/yt.mp4" type="video/mp4" />
+        </video>
         <div className="r6-right-number">06</div>
         <div className="r6-right-content">
           <div className="r6-right-title">
-              I can effectively convey my ideas &
+            I can effectively convey my ideas &
             <br />
-            connect with others on a deeper level. 
+            connect with others on a deeper level.
           </div>
           <div className="r6-right-sub">
-          Its very easy for me to EXPRESS and communicate 
+            Its very easy for me to EXPRESS and communicate
           </div>
         </div>
       </div>
@@ -1691,32 +1680,32 @@ function Reason6() {
 
 function Reason7() {
   useEffect(() => {
-  const trigger = ScrollTrigger.create({
-    trigger: ".reason-7",
+    const trigger = ScrollTrigger.create({
+      trigger: ".reason-7",
 
-    start: "top 50%",
-    end: "bottom 50%",
+      start: "top 50%",
+      end: "bottom 50%",
 
-    onEnter: () => {
-      console.log("REASON 7 ENTERED");
-      changeSong("/sounds/goatt.mp3", 25);
-    },
+      onEnter: () => {
+        console.log("REASON 7 ENTERED");
+        changeSong("/sounds/goatt.mp3", 25);
+      },
 
-    onEnterBack: () => {
-      console.log("REASON 7 ENTERED BACK");
-      changeSong("/sounds/goatt.mp3", 30);
-    },
-    onLeave: () => {
-  bgMusic.pause();
-},
+      onEnterBack: () => {
+        console.log("REASON 7 ENTERED BACK");
+        changeSong("/sounds/goatt.mp3", 30);
+      },
+      onLeave: () => {
+        bgMusic.pause();
+      },
 
-onLeaveBack: () => {
-  bgMusic.pause();
-},
-  });
+      onLeaveBack: () => {
+        bgMusic.pause();
+      },
+    });
 
-  return () => trigger.kill();
-}, []);
+    return () => trigger.kill();
+  }, []);
   useEffect(() => {
     const tl = gsap.timeline({
       scrollTrigger: { trigger: ".reason-7", start: "top 70%" },
@@ -1768,11 +1757,7 @@ onLeaveBack: () => {
 
   return (
     <section className="reason-7">
-      <img
-    src="/images/goat.png"
-    className="reason-7-bg"
-    alt=""
-  />
+      <img src="/images/goat.png" className="reason-7-bg" alt="" />
 
       <div className="neon-scanlines" />
       <div
@@ -1785,7 +1770,11 @@ onLeaveBack: () => {
       >
         <div className="neon-tag">Reason 7</div>
         <div className="neon-title">
-          {["Reason 7:", "Cause IMma FUCKING GOAT", "randomly ek din uth ke daddy ni likhwa liya apne haatho pe, it took life,signing off"].map((line, i) => (
+          {[
+            "Reason 7:",
+            "Cause IMma FUCKING GOAT",
+            "randomly ek din uth ke daddy ni likhwa liya apne haatho pe, it took life,signing off",
+          ].map((line, i) => (
             <div key={i} style={{ overflow: "hidden" }}>
               <div className="neon-line-inner" style={{ display: "block" }}>
                 {i === 1 ? <span className="neon-accent">{line}</span> : line}
@@ -1794,9 +1783,7 @@ onLeaveBack: () => {
           ))}
         </div>
         <div className="neon-line" />
-        <p className="neon-desc">
-
-        </p>
+        <p className="neon-desc"></p>
       </div>
     </section>
   );
@@ -1808,12 +1795,7 @@ onLeaveBack: () => {
 const questions = [
   {
     q: "How I address my people?",
-    options: [
-      "BBG & BBB",
-      "HBS AND HGS ",
-      "BITCH",
-      "BRO",
-    ],
+    options: ["BBG & BBB", "HBS AND HGS ", "BITCH", "BRO"],
     correct: 1,
   },
   {
@@ -1828,12 +1810,7 @@ const questions = [
   },
   {
     q: "what i love the most?",
-    options: [
-      "cheesecake",
-      "hoeminos",
-      "kfc",
-      "mcdonalds",
-    ],
+    options: ["cheesecake", "hoeminos", "kfc", "mcdonalds"],
     correct: 1,
   },
   {
@@ -1848,12 +1825,7 @@ const questions = [
   },
   {
     q: "what i hate the most?",
-    options: [
-      "introverts",
-      "attention seekers",
-      "RR",
-      "bakchodi",
-    ],
+    options: ["introverts", "attention seekers", "RR", "bakchodi"],
     correct: 1,
   },
 ];
@@ -1865,7 +1837,7 @@ function FriendshipTest({
 }) {
   const [current, setCurrent] = useState(0);
   const [name, setName] = useState("");
-const [email, setEmail] = useState("");
+  const [email, setEmail] = useState("");
   const [selected, setSelected] = useState<number | null>(null);
   const [score, setScore] = useState(0);
   const [done, setDone] = useState(false);
@@ -1873,9 +1845,9 @@ const [email, setEmail] = useState("");
 
   const answer = (idx: number) => {
     if (!name || !email) {
-  alert("Enter name and email first bro 😭");
-  return;
-}
+      alert("Enter name and email first bro 😭");
+      return;
+    }
     if (selected !== null) return;
     setSelected(idx);
     const correct = idx === questions[current].correct;
@@ -1883,22 +1855,20 @@ const [email, setEmail] = useState("");
     if (correct) setScore(newScore);
     finalScore.current = newScore;
     setTimeout(() => {
-     if (current + 1 >= questions.length) {
+      if (current + 1 >= questions.length) {
+        const resultData = {
+          name,
+          email,
+          score: finalScore.current,
+          percentage: (finalScore.current / questions.length) * 100,
+          submittedAt: new Date().toLocaleString(),
+        };
 
-  const resultData = {
-  name,
-  email,
-  score: finalScore.current,
-  percentage:
-    (finalScore.current / questions.length) * 100,
-  submittedAt: new Date().toLocaleString(),
-};
+        push(ref(db, "friendshipResults"), resultData);
 
-  push(ref(db, "friendshipResults"), resultData);
-
-  setDone(true);
-  onComplete(finalScore.current);
-} else {
+        setDone(true);
+        onComplete(finalScore.current);
+      } else {
         setCurrent((c) => c + 1);
         setSelected(null);
       }
@@ -1918,29 +1888,29 @@ const [email, setEmail] = useState("");
         </div>
       </div>
       <div
-  style={{
-    display: "flex",
-    flexDirection: "column",
-    gap: "12px",
-    width: "100%",
-    maxWidth: "600px",
-    marginBottom: "20px",
-  }}
->
-  <input
-    type="text"
-    placeholder="Your Name"
-    value={name}
-    onChange={(e) => setName(e.target.value)}
-  />
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          gap: "12px",
+          width: "100%",
+          maxWidth: "600px",
+          marginBottom: "20px",
+        }}
+      >
+        <input
+          type="text"
+          placeholder="Your Name"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+        />
 
-  <input
-    type="email"
-    placeholder="Your Email"
-    value={email}
-    onChange={(e) => setEmail(e.target.value)}
-  />
-</div>
+        <input
+          type="email"
+          placeholder="Your Email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
+      </div>
       <div className="quiz-progress-track">
         <div className="quiz-progress-fill" style={{ width: `${progress}%` }} />
       </div>
@@ -2014,33 +1984,32 @@ function FriendshipMeter({ score }: { score: number }) {
   const circumference = Math.PI * 80; // ~251.3
   const dashOffset = circumference - (circumference * displayed) / 100;
 
- useEffect(() => {
-  console.log("PCT =", pct);
+  useEffect(() => {
+    console.log("PCT =", pct);
 
-  if (pct === 0) return;
+    if (pct === 0) return;
 
-  const end = pct;
-  const duration = 2000;
-  const startTime = performance.now();
+    const end = pct;
+    const duration = 2000;
+    const startTime = performance.now();
 
-  const ease = (t: number) =>
-    t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
+    const ease = (t: number) => (t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t);
 
-  const step = (now: number) => {
-    const t = Math.min((now - startTime) / duration, 1);
+    const step = (now: number) => {
+      const t = Math.min((now - startTime) / duration, 1);
 
-    setDisplayed(Math.round(ease(t) * end));
+      setDisplayed(Math.round(ease(t) * end));
 
-    if (t < 1) {
-      requestAnimationFrame(step);
-    } else {
-      setDisplayed(end);
-      setTextVisible(true);
-    }
-  };
+      if (t < 1) {
+        requestAnimationFrame(step);
+      } else {
+        setDisplayed(end);
+        setTextVisible(true);
+      }
+    };
 
-  requestAnimationFrame(step);
-}, [pct]);
+    requestAnimationFrame(step);
+  }, [pct]);
   const messages: [number, string][] = [
     [
       100,
@@ -2165,9 +2134,7 @@ function HallOfFame() {
 
   useEffect(() => {
     const loadData = async () => {
-      const snapshot = await get(
-        ref(db, "friendshipResults")
-      );
+      const snapshot = await get(ref(db, "friendshipResults"));
 
       if (!snapshot.exists()) return;
 
@@ -2175,10 +2142,7 @@ function HallOfFame() {
 
       const list = Object.values(data) as any[];
 
-      list.sort(
-        (a: any, b: any) =>
-          b.percentage - a.percentage
-      );
+      list.sort((a: any, b: any) => b.percentage - a.percentage);
 
       setPlayers(list);
     };
@@ -2188,9 +2152,7 @@ function HallOfFame() {
 
   return (
     <section className="hall-section">
-      <div className="hall-title">
-        🏆 FRIENDSHIP HALL OF FAME
-      </div>
+      <div className="hall-title">🏆 FRIENDSHIP HALL OF FAME</div>
 
       {players.map((p, i) => (
         <div className="hall-row" key={i}>

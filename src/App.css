@@ -384,7 +384,7 @@ body {
 }
 .field-value {
   font-family: var(--dm);
-  font-size: 2rem;
+  font-size: 1rem;
   color: var(--bone);
   line-height: 1.6;
 }
@@ -688,7 +688,7 @@ body {
 }
 .badminton-big {
   font-family: var(--bebas);
-  font-size: clamp(4.5rem, 14vw, 14rem);
+  font-size: clamp(2rem, 14vw, 14rem);
   line-height: 0.85;
 }
 .badminton-meta {
@@ -768,7 +768,7 @@ body {
 }
 .kinetic-word {
   font-family: var(--bebas);
-  font-size: clamp(4.5rem, 13vw, 13rem);
+  font-size: clamp(2rem, 13vw, 13rem);
   display: block;
   line-height: 0.88;
   color: var(--bone);
@@ -874,7 +874,7 @@ body {
 .r2-image {
   width: 8rem;
   height: 8rem;
-   margin: 1rem;
+  margin: 1rem;
   border-radius: 12px;
 
   object-fit: cover;
@@ -916,7 +916,7 @@ body {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(0,0,0,0.65);
+  background: rgba(0, 0, 0, 0.65);
   z-index: 1;
 }
 
@@ -932,7 +932,6 @@ body {
 .r3-inner {
   opacity: 0;
 }
-
 
 .reason-3-content {
   position: relative;
@@ -1063,14 +1062,14 @@ body {
 }
 .r5-label {
   font-family: var(--mono);
-  font-size: 5rem;
+  font-size: 2.5rem;
   letter-spacing: 0.4em;
   color: rgba(10, 10, 15, 0.45);
   text-transform: uppercase;
 }
 .r5-title {
   font-family: var(--bebas);
-  font-size: clamp(2rem, 5vw, 5rem);
+  font-size: clamp(1rem, 5vw, 3rem);
   color: var(--void);
 }
 
@@ -1120,7 +1119,7 @@ body {
   position: absolute;
   inset: 0;
 
-  background: rgba(0,0,0,0.75);
+  background: rgba(0, 0, 0, 0.75);
 
   z-index: 1;
 }
@@ -1128,7 +1127,7 @@ body {
   position: absolute;
   inset: 0;
 
-  background: rgba(200,169,110,0.65);
+  background: rgba(200, 169, 110, 0.65);
 
   z-index: 1;
 }
@@ -1158,7 +1157,7 @@ body {
 }
 .r6-right-number {
   font-family: var(--bebas);
-  font-size: 18rem;
+  font-size: 3rem;
   color: rgba(10, 10, 15, 0.08);
   position: absolute;
   line-height: 1;
@@ -1170,7 +1169,7 @@ body {
 }
 .r6-right-title {
   font-family: var(--bebas);
-  font-size: clamp(15rem, 5.5vw, 5rem);
+  font-size: clamp(2rem, 5.5vw, 5rem);
   color: var(--void);
   line-height: 0.92;
 }
