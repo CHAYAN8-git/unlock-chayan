@@ -1592,7 +1592,7 @@ function Reason5() {
         <div
           style={{
             background: "rgba(240,230,211,0.95)",
-            padding: "1.5rem 3rem",
+            padding: "0.5rem 1rem",
             textAlign: "center",
             backdropFilter: "blur(4px)",
           }}
