@@ -1588,19 +1588,12 @@ function Reason5() {
           </div>
         </div>
       ))}
-      <div className="reason-5-center">
-        <div
-          style={{
-            background: "rgba(240,230,211,0.95)",
-            padding: "0.5rem 1rem",
-            textAlign: "center",
-            backdropFilter: "blur(4px)",
-          }}
-        >
-          <div className="r5-label">Reason #05</div>
-          <div className="r5-title"> reason 5 of why you should hire me</div>
-        </div>
-      </div>
+     <div className="reason-5-center">
+  <div className="reason-5-card">
+    <div className="r5-label">Reason #05</div>
+    <div className="r5-title"> reason 5 of why you should hire me</div>
+  </div>
+</div>
     </section>
   );
 }
