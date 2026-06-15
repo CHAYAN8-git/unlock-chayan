@@ -1202,11 +1202,11 @@ function Reason2() {
     { img: "/images/pandit.png", label: "part-time pandit" },
     { img: "/images/abs.png", label: "very disciplined" },
     { img: "/images/uni.png", label: "bharat ratna winner" },
-    { img: "/images/dsa.png", label: "Leechad bangaya teacher" },
+    { img: "/images/dsa.png", label: "Leechad  bngaya teacher" },
     { img: "/images/yt.png", label: "can teach new comers" },
     { img: "/images/prom.png", label: "very professional" },
     { img: "/images/tansen.png", label: "Gaayak" },
-    { img: "/images/mantri.png", label: "Rizz mantri BJP" },
+    { img: "/images/mantri.png", label: "Rizz-mantri BJP" },
     { img: "/images/smash.png", label: "KNOWs HOW TO FLY" },
   ];
 
@@ -1225,7 +1225,7 @@ function Reason2() {
       </div>
       <div className="r2-hint">
         tap to see hidden reasons
-        me{" "}
+      {" "}
       </div>
     </section>
   );
