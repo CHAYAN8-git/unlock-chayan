@@ -882,8 +882,8 @@ body {
   left: 50%;
   transform: translateX(-50%);
   font-family: var(--mono);
-  font-size: 1rem;
-  letter-spacing: 0.3em;
+  font-size: 0.5rem;
+  letter-spacing: 0.2em;
   color: rgba(200, 169, 110, 0.3);
   text-transform: uppercase;
   z-index: 3;
@@ -908,7 +908,7 @@ body {
 .r2-image {
   width: 8rem;
   height: 8rem;
-  margin: 1rem;
+  margin: 2rem;
   border-radius: 12px;
 
   object-fit: cover;
