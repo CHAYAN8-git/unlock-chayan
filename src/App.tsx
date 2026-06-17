@@ -567,7 +567,7 @@ function GymSection() {
 
   useEffect(() => {
     ScrollTrigger.create({
-     trigger: isMobile ? ".gym-section-mobile" : ".gym-section",
+      trigger: isMobile ? ".gym-section-mobile" : ".gym-section",
       start: "top 50%",
       end: "bottom 50%",
 
@@ -578,7 +578,7 @@ function GymSection() {
         changeSong("/sounds/superman.mp3");
       },
     });
-  }, [isMobile ]);
+  }, [isMobile]);
   useEffect(() => {
     const section = sectionRef.current;
     const track = trackRef.current;
@@ -1044,10 +1044,7 @@ function BadmintonSection() {
             </div>
           ))}
         </div>
-        <div className="badminton-meta">
-          please Hire me im very gareeb · like very gareeb 5 din se khaana bhi
-          ni khaaya ·
-        </div>
+        <div className="badminton-meta">please Hire me ...</div>
       </div>
     </section>
   );
@@ -1147,56 +1144,55 @@ function Reason2() {
     });
   }, []);
   useEffect(() => {
-  const section = sectionRef.current;
+    const section = sectionRef.current;
 
-  if (!section) return;
+    if (!section) return;
 
-  gsap.fromTo(
-    ".r2-cell",
-    { opacity: 0, scale: 0.8 },
-    {
-      opacity: 1,
-      scale: 1,
-      duration: 0.5,
-      stagger: { amount: 0.6, from: "center" },
-      ease: "back.out(1.4)",
-      scrollTrigger: { trigger: section, start: "top 65%" },
-    }
-  );
+    gsap.fromTo(
+      ".r2-cell",
+      { opacity: 0, scale: 0.8 },
+      {
+        opacity: 1,
+        scale: 1,
+        duration: 0.5,
+        stagger: { amount: 0.6, from: "center" },
+        ease: "back.out(1.4)",
+        scrollTrigger: { trigger: section, start: "top 65%" },
+      },
+    );
 
-  const updateSpotlight = (clientX: number, clientY: number) => {
-    const rect = section.getBoundingClientRect();
+    const updateSpotlight = (clientX: number, clientY: number) => {
+      const rect = section.getBoundingClientRect();
 
-    const x = ((clientX - rect.left) / rect.width) * 100;
-    const y = ((clientY - rect.top) / rect.height) * 100;
+      const x = ((clientX - rect.left) / rect.width) * 100;
+      const y = ((clientY - rect.top) / rect.height) * 100;
 
-    const mask = section.querySelector(".spotlight-mask") as HTMLElement;
+      const mask = section.querySelector(".spotlight-mask") as HTMLElement;
 
-    if (mask) {
-      mask.style.background =
-        `radial-gradient(circle 250px at ${x}% ${y}%,
+      if (mask) {
+        mask.style.background = `radial-gradient(circle 250px at ${x}% ${y}%,
         transparent 0%,
         rgba(5,5,5,0.96) 100%)`;
-    }
-  };
+      }
+    };
 
-  const handleMouse = (e: MouseEvent) => {
-    updateSpotlight(e.clientX, e.clientY);
-  };
+    const handleMouse = (e: MouseEvent) => {
+      updateSpotlight(e.clientX, e.clientY);
+    };
 
-  const handleTouch = (e: TouchEvent) => {
-    const touch = e.touches[0];
-    updateSpotlight(touch.clientX, touch.clientY);
-  };
+    const handleTouch = (e: TouchEvent) => {
+      const touch = e.touches[0];
+      updateSpotlight(touch.clientX, touch.clientY);
+    };
 
-  section.addEventListener("mousemove", handleMouse);
-  section.addEventListener("touchmove", handleTouch);
+    section.addEventListener("mousemove", handleMouse);
+    section.addEventListener("touchmove", handleTouch);
 
-  return () => {
-    section.removeEventListener("mousemove", handleMouse);
-    section.removeEventListener("touchmove", handleTouch);
-  };
-}, []);
+    return () => {
+      section.removeEventListener("mousemove", handleMouse);
+      section.removeEventListener("touchmove", handleTouch);
+    };
+  }, []);
 
   const traits = [
     { img: "/images/pandit.png", label: "part-time pandit" },
@@ -1217,16 +1213,13 @@ function Reason2() {
       <div className="reason-2-grid">
         {traits.map((t, i) => (
           <div key={i} className="r2-cell">
-                        <img src={t.img} alt={t.label} className="r2-image" />
+            <img src={t.img} alt={t.label} className="r2-image" />
 
             <div className="r2-label">{t.label}</div>
           </div>
         ))}
       </div>
-      <div className="r2-hint">
-        tap to see hidden reasons
-      {" "}
-      </div>
+      <div className="r2-hint">tap to see hidden reasons </div>
     </section>
   );
 }
@@ -1569,8 +1562,8 @@ function Reason5() {
   return (
     <section className="reason-5">
       {[0, 1, 2].map((row) => (
-<div key={row} style={{ overflow: "hidden", width: "100%" }}>    
-        <div
+        <div key={row} style={{ overflow: "hidden", width: "100%" }}>
+          <div
             style={{
               display: "flex",
               animation: `${row % 2 === 0 ? "marqueeLeft" : "marqueeRight"} ${18 + row * 4}s linear infinite`,
@@ -1588,12 +1581,12 @@ function Reason5() {
           </div>
         </div>
       ))}
-     <div className="reason-5-center">
-  <div className="reason-5-card">
-    <div className="r5-label">Reason #05</div>
-    <div className="r5-title"> reason 5 of why you should hire me</div>
-  </div>
-</div>
+      <div className="reason-5-center">
+        <div className="reason-5-card">
+          <div className="r5-label">Reason #05</div>
+          <div className="r5-title"> reason 5 of why you should hire me</div>
+        </div>
+      </div>
     </section>
   );
 }
@@ -1788,8 +1781,8 @@ function Reason7() {
         <div className="neon-title">
           {[
             "Reason 7:",
-            "Cause IMma FUCKING GOAT",
-            "randomly ek din uth ke daddy ni likhwa liya apne haatho pe, it took life,signing off",
+            "",
+            "ZERO HALF MEASURES.IF I DO SOMETHING,I GO ALL IN.,signing off",
           ].map((line, i) => (
             <div key={i} style={{ overflow: "hidden" }}>
               <div className="neon-line-inner" style={{ display: "block" }}>
@@ -1815,7 +1808,7 @@ const questions = [
     correct: 1,
   },
   {
-    q: "mere kutte ka naam kya?",
+    q: "mere kutte ka naam kya hai?",
     options: [
       "Sheikh hasina",
       "galaxy destroyer",
@@ -1834,7 +1827,7 @@ const questions = [
     options: [
       "Panic",
       "Accept defeat gracefully",
-      "Smashe harder than ever",
+      "Smashes harder than ever",
       "Fake an injury",
     ],
     correct: 2,
@@ -2029,12 +2022,21 @@ function FriendshipMeter({ score }: { score: number }) {
   const messages: [number, string][] = [
     [
       100,
-      '"A rare soul who truly understands Chayan. The vault is wide open."',
+      '"Humein iss dosti ko rishtey mai badal dena chahiye., love ju aa jiii."',
     ],
-    [80, '"Strong compatibility. You\'re basically already friends."'],
-    [60, '"Solid foundation. Chayan would approve."'],
-    [40, '"You\'re getting there. Keep showing up."'],
-    [0, '"Every legend starts somewhere. The journey begins."'],
+    [80, '"Almost perfect,koi na still love ju frienda love ju"'],
+    [60, '"ok ok percentage, but koi ni, gulabi-dil"'],
+
+    [
+      40,
+      '"Ghatiya percentage but anyways tere boards se toh zyada hi le aaye idhar congrats & no dosti,sorry"',
+    ],
+    [
+      20,
+      '"bhyyi paper thodi hain jo yahan bhi fail hora hai chal koi ni ,give it a try once more"',
+    ],
+
+    [0, '"Tu dost hai? tere jaise ghatiya dost se toh 1000 dushman sahi.."'],
   ];
   const message = (messages.find(([threshold]) => pct >= threshold) ??
     messages[4])[1];
