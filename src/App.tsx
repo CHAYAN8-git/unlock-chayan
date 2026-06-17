@@ -1195,15 +1195,15 @@ function Reason2() {
   }, []);
 
   const traits = [
-    { img: "/images/pandit.png", label: "part-time pandit" },
-    { img: "/images/abs.png", label: "very disciplined" },
-    { img: "/images/uni.png", label: "bharat ratna winner" },
-    { img: "/images/dsa.png", label: "Leechad  bngaya teacher" },
-    { img: "/images/yt.png", label: "can teach new comers" },
+    { img: "/images/pandit.png", label: "part-tym pandit" },
+    { img: "/images/abs.png", label: "6Bis" },
+    { img: "/images/uni.png", label: "bharat ratna" },
+    { img: "/images/dsa.png", label: "Leechad d teacher" },
+    { img: "/images/yt.png", label: "YOOTOOBER" },
     { img: "/images/prom.png", label: "very professional" },
     { img: "/images/tansen.png", label: "Gaayak" },
-    { img: "/images/mantri.png", label: "Rizz-mantri BJP" },
-    { img: "/images/smash.png", label: "KNOWs HOW TO FLY" },
+    { img: "/images/mantri.png", label: "Rizz-mantri " },
+    { img: "/images/smash.png", label: "udta panchhi" },
   ];
 
   return (
