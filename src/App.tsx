@@ -618,8 +618,8 @@ function GymSection() {
   const panels = [
     {
       cls: "gym-panel-1",
-      title: ["HAWABAAJI", "TIME", ""],
-      stat: "5 DAYS / WEEK · NO EXCUSES",
+      title: ["5 DAYS / WEEK", "· NO", "EXCUSES"],
+      stat: "  ",
       num: "01",
       image: "/images/abs.png",
     },
@@ -632,7 +632,7 @@ function GymSection() {
     },
     {
       cls: "gym-panel-3",
-      title: ["Yaaron", "Ka", "Yaar"],
+      title: ["idk", "why i added", "this image but it looks cool anyways"],
       stat: "CHAPTER: ONGOING",
       num: "03",
       image: "/images/fukra.png",
